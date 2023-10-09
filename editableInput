@@ -1,0 +1,46 @@
+import {Component} from 'react'
+import {Fl} from './styledComponents'
+
+class EditableInput extends Component {
+  state = {
+    input: '',
+    edit: false,
+  }
+
+  onChangeInput = event => {
+    this.setState({input: event.target.value})
+  }
+
+  onSave = () => {
+    this.setState(prev => ({edit: !prev.edit}))
+  }
+
+  render() {
+    const {edit, input} = this.state
+    return (
+      <div>
+        <div>
+          <h1>Editable Input Text</h1>
+          {!edit && (
+            <div>
+              <input type="text" value={input} onChange={this.onChangeInput} />
+              <button type="button" onClick={this.onSave}>
+                Save
+              </button>
+            </div>
+          )}
+          {edit && (
+            <Fl>
+              <p>{input}</p>
+              <button type="button" onClick={this.onSave}>
+                Edit
+              </button>
+            </Fl>
+          )}
+        </div>
+      </div>
+    )
+  }
+}
+
+export default EditableInput
