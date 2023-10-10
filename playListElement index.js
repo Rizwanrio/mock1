@@ -14,7 +14,7 @@ const PlayList = (props) =>{
 <img src={element.imageUrl} alt='track'/>
 <div>
     <p>{element.duration}</p>
-    <button type='button' onClick={onDel}>
+    <button type='button' onClick={onDel} data-testid ='delete'>
 <AiOutlineDelete/>
     </button>
 </div>
